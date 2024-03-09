@@ -1,1 +1,17 @@
+name: ci-cd
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out code
+        uses: actions/checkout@v2
+
+      - name: hello
+        run: echo "hello world"
+        shell: bash
 
