@@ -9,11 +9,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: check out code
+      - name: pull code
         uses: actions/checkout@v2
 
-      - name: hello
-        run: echo "hello world"
+      - name: install npm modules
+        run: echo "install npm modules"
+        shell: bash
+        
+      - name: build node app
+        run: echo "build node app"
         shell: bash
 
+      - name: publish files
+        run: echo "publish files"
+        shell: bash
 
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: stop nginx service
+        run: echo "stop nginx service"
+        shell: bash
+        
+      - name: copy/replace publish files
+        run: echo "copy/replace publish files"
+        shell: bash
+
+      - name: start nginx service
+        run: echo "start nginx service"
+        shell: bash
