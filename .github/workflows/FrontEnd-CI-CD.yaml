@@ -1,4 +1,4 @@
-name: ci-cd
+name: FrontEnd-CI-CD
 
 on:
   push:
@@ -7,11 +7,15 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest   
     steps:
       - name: pull code
         uses: actions/checkout@v2
 
+      - name: install node
+        run: echo "install node"
+        shell: bash
+        
       - name: install npm modules
         run: echo "install npm modules"
         shell: bash
@@ -20,12 +24,12 @@ jobs:
         run: echo "build node app"
         shell: bash
 
-      - name: publish files
+      - name: publish files       # store publish files in shared path
         run: echo "publish files"
         shell: bash
 
   deployment:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest       # should be front end server in aws
     steps:
       - name: stop nginx service
         run: echo "stop nginx service"
